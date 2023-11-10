@@ -30,7 +30,7 @@ void Withdraw(struct ATM *a , double amt){
     Sleep(1000);
 }
 int main(){ 
-    
+  
     struct ATM *ptr = &atm;
     
     printf("Enter Pin : ");
