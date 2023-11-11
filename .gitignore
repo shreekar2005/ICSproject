@@ -1,3 +1,5 @@
-ATM.exe
-data.txt
-test.exe
+#all exe
+*.exe
+#all txt
+*.txt
+
