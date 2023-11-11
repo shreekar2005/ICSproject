@@ -60,7 +60,7 @@ int main(){
 
             CheckBalance(ptr);
         }else{
-            printf("Invalid Pin\n");
+            printf("Invalid Pin \n");
         }
             break;
         case 2: 
