@@ -4,7 +4,7 @@
 #include <conio.h>
 #include <stdlib.h>
 
-int already_exist(char name[], char password[])
+int already_exist(char name[], char password[])//checks to see if name pswd exist
 {
     char nameinfile[20], passwordinfile[20];
     double balance0;
@@ -35,7 +35,7 @@ int already_exist(char name[], char password[])
     return 0;
 }
 
-void insert(char name[], char password[], double balance)
+void insert(char name[], char password[], double balance)//opens account by creating new line
 {
     FILE *file;
     file = fopen("data.txt", "a");
@@ -56,7 +56,7 @@ void insert(char name[], char password[], double balance)
     fclose(file);
 }
 
-void ShowBalance(char name[], char password[])
+void ShowBalance(char name[], char password[])//searches for last instance of name and pswd
 {
     char nameinfile[20], passwordinfile[20];
     double balance0,balance1;
@@ -81,7 +81,7 @@ void ShowBalance(char name[], char password[])
     printf("your current balance is : %lf", balance1);
 }
 
-void deposit(char name[], char password[], double amt) 
+void deposit(char name[], char password[], double amt) //inserts new line with updated balance
 {
     char nameinfile[20], passwordinfile[20];
     double balance0,balance1;
@@ -108,7 +108,7 @@ void deposit(char name[], char password[], double amt)
     fclose(file);
 }
 
-void Withdraw(char name[], char password[], double amt) // TO BE DONE...
+void Withdraw(char name[], char password[], double amt) //inserts new line with updated balance
 {
     char nameinfile[20], passwordinfile[20];
     double balance0,balance1;
@@ -182,9 +182,15 @@ up:
             goto up;
             break;
         }
+        b1:
         printf("Enter initial balance : ");
         scanf("%lf", &balance);
+        if(balance >= 0){
         insert(name, password, balance); // it will also give message...
+        }else{
+            printf("Invalid balance, Enter again\n");
+            goto b1;
+        }
         Sleep(1000);
         printf("\n\n");
         int enter = 1;
@@ -236,7 +242,7 @@ up:
         printf("Enter 1 to check balance\n");
         printf("Enter 2 to withdraw money\n");
         printf("Enter 3 to deposit money\n");
-        printf("Enter 4 for back\n");
+        printf("Enter 4 to Logout\n");
         printf("Enter 5 to exit program\n");
         printf("Your option : ");
         scanf("%d", &op);
@@ -263,8 +269,13 @@ up:
             break;
 
         case 2:
+            a1:
             printf("Enter amount to be Withdrawn : ");
             scanf("%lf", &amount);
+            if(amount <0){
+                printf("Invalid amount\n");
+                goto a1;
+            }
 
             printf("Enter password : ");
             scanf("%s", &ppassword);
@@ -279,9 +290,14 @@ up:
             break;
 
         case 3:
+        d1:
             printf("Enter amount to be deposited : ");
             scanf("%lf", &amountD);
             // printf("%lf" , amountD);
+            if(amountD <0){
+                printf("Invalid amount\n");
+                goto d1;
+            }
             printf("Enter password : ");
             scanf("%s", &ppassword);
             if (strcmp(password, ppassword) == 0)
