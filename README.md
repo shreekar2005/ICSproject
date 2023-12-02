@@ -11,7 +11,7 @@ This project is to create a simple ATM machine which will run on the terminal.
 2. An IDE/text editor such as Vscode is preffered.
 ### Setup:
 1. Clone the github repository to your local computer and store it in folder  
-2. Create a .txt file in the same folder and name it "data.txt"
+2. If data.txt already does not exist ,Create a .txt file in the same folder and name it "data.txt"
 ### Running the program:
 #### Using Vscode:
 1. Open the file using Vscode
